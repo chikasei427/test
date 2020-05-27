@@ -1,1 +1,4 @@
-<h1>ユーザー詳細ページ</h1>
+<h1><%= @photographer.name %></h1>
+  <% @photographer.posts.each do |post| %>
+      <%= image_tag post.picture.url if post.picture? %>
+  <% end %>

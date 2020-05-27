@@ -7,13 +7,14 @@ class PhotographersController < ApplicationController
   end
   
   def show
+    @photographer = Photographer.find(params[:id])
   end
   
   def create
     @photographer = Photographer.new(photographer_params)
     if @photographer.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to root_path
+      redirect_to photographer_path(@photographer.id)
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new

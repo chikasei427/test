@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to root_path
+      redirect_to photographer_path(@photographer.id)
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new
@@ -32,7 +32,3 @@ class SessionsController < ApplicationController
     end
   end
 end
-
-
-
-
