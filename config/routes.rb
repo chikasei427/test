@@ -3,4 +3,11 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
   get 'signup', to: 'photographers#new'
   resources :photographers, only: [:index, :show, :new, :create]
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
+  resources :posts, only: [:index, :new]
+  
 end
