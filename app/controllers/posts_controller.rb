@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       redirect_to photographer_path(current_photographer.id)
     else
       # @microposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      flash.now[:danger] = '作品の投稿に失敗しました。'
       render :new
     end
   end
