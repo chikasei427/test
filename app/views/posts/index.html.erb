@@ -1,1 +1,30 @@
-<h1>作品一覧画面</h1>
+<h2 class="mb-2 text-white"><i class="fas fa-camera-retro"></i>Works</h2>
+<div class="row">
+  <table class="table-light my-table w-100">
+    <% @posts_slice.each do |row| %>
+      <tr class="w-50">
+        <% row.each do |post| %>
+            <td class="bg-dark text-center text-white"><%= link_to 'Title:  ' + post.title, post_path(post.id), class:'text-white' %></div></td>
+        <% end %>
+      </tr>
+      <tr class="w-50">
+        <% row.each do |post| %>
+          <% image = image_tag post.picture.url, class: 'picture'%>
+          <td class="w-25"><div class="text-center"><%= link_to image, post_path(post.id) %></div></td>
+        <% end %>
+      </tr>
+      <tr class="w-50">
+        <% row.each do |post| %>
+          <td><div class="text-center bg-info text-white"><%= link_to 'Author:  ' + post.photographer.name, photographer_path(post.photographer.id), class:'text-white' %></div></td>
+        <% end %>
+      </tr>
+      <tr class="w-50">
+        <% row.each do |post| %>
+          <td><div class="text-center"><%= render 'favorites/favorite_button', post: post %></div></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<br>
+<%= paginate @posts %>

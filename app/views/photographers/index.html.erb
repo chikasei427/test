@@ -1,1 +1,15 @@
-<h1>PhotoGraphers一覧</h1>
+<h2 class="mb-2 text-white"><i class="fas fa-users"></i>Photographers</h2>
+<div class="row">
+  <div class="col-12">
+    <table class="w-100 my-table bg-white">
+      <% @photographers.each do |photographer| %>
+      <tr>
+        <td><i class="fas fa-user"></i>Name:  <%= link_to photographer.name, photographer_path(photographer.id), class:'text-primary' %></td>
+        <td><i class="far fa-thumbs-up"></i>The Work:  <%= link_to photographer.posts.size, photographer_path(photographer.id), class:'text-primary' %></td>
+        <td><i class="far fa-thumbs-up"></i>Favorite work:  <%= link_to photographer.favoritings.size, favorittings_photographer_path(photographer.id), class:'text-primary' %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%= paginate @photographers %>  

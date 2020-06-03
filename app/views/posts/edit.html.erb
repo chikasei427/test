@@ -1,4 +1,4 @@
-<h2 class="mb-2 text-white"><i class="fas fa-upload"></i>New post</h2>
+<h2 class="mb-2 text-white"><i class="fas fa-edit"></i>Edit</h2>
 <div class="row">
   <div class="col-12 form">
     <%= form_with(model: @post, local: true) do |f| %>
@@ -11,11 +11,14 @@
         <%= f.label :content, 'Content' %>
         <%= f.text_area :content, class: 'form-control', rows: 5 %>
       </div>
+      <%= image_tag @post.picture.url, class: 'picture' %>
       <div class="form-group">
         <%= f.label :picture, 'Upload Picture'%><br>
         <%= f.file_field :picture, class: 'form-control', rows: 5 %>
       </div>
       <%= f.submit 'Post', class: 'btn btn-primary btn-block w-25 mx-auto' %>
     <% end %>
+    <br>
+    <%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %>
   </div>
 </div>

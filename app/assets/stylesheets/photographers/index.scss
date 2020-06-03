@@ -14,18 +14,12 @@
  *= require_self
  */
 body{
-    font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
     margin:0;
     padding:0;
-    color:#FFFFFF;
+    color:#000000;
     text-align:center;
     text-decoration: none;
-    background-image:url("boy-1846310_1280.jpg");
+    background-image:url("../boy-1846310_1280.jpg");
     /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
     /* 画像をタイル状に繰り返し表示しない */
@@ -36,24 +30,46 @@ body{
     background-size: cover;
 }
 
-.picture{
-    max-width:60%;
+h1{
+    padding:5px;
+    color:#FFFFFF;
+    display:inline;
 }
 
-.form{
-    background-color:#FFFFFF;
+a{
     color:#000000;
-    border-radius:10px;
-    padding:50px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#headeline{
+    font-size:7em;
+    margin-top:12%;
+}
+
+.picture{
+    max-width:50%;
 }
 
 .frame{
     background-color:#FFFFFF;
     color:#000000;
+    height:580px;
 }
 
-.hover_mouse{
-    background-color:pink;
+.my-table{
+    color:#000000;
+}
+
+.my-table td {
+  border: solid 1px #000000;
+  text-align:left;
+}
+
+.active{
+    background-color:#c0c0c0;
 }
 
 html,body{
@@ -66,9 +82,8 @@ html,body{
     height: 100%;
 }
 main{
-    padding-bottom: 50px
+    padding-bottom: 50px;
 }
-
 .footer{
     position: absolute;
     bottom: 0;

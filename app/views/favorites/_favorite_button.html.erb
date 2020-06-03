@@ -1,0 +1,16 @@
+<% unless current_photographer == post.photographer %>
+  <% puts current_photographer.nil? %>
+  <% if current_photographer.favoriting?(post) %>
+    <%= form_with(model: current_photographer.favorites.find_by(post_id: post.id), local: true, method: :delete) do |f| %>
+      <%= hidden_field_tag :favorite_id, post.id %>
+      <%= f.submit 'Unfavorite', class: 'btn btn-danger btn-block' %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_photographer.favorites.build, local: true) do |f| %>
+      <%= hidden_field_tag :favorite_id, post.id %>
+      <%= f.submit 'Favorite', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to 'Edit', edit_post_path(post.id), class: 'btn btn-success btn-block' %>
+<% end %>
