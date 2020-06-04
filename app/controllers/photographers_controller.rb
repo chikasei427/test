@@ -12,7 +12,7 @@ class PhotographersController < ApplicationController
 
   def show
     @photographer = Photographer.find(params[:id])
-    @posts_row = @photographer.posts.each_slice(2).to_a
+    @posts_row = @photographer.posts.order(id: :desc).each_slice(2).to_a
   end
 
   def create
@@ -28,7 +28,7 @@ class PhotographersController < ApplicationController
   
   def favorittings
     @photographer = Photographer.find(params[:id])
-    @favorites_row = @photographer.favorites.each_slice(2).to_a
+    @favorites_row = @photographer.favorites.order(id: :desc).each_slice(2).to_a
   end
   
   def favorite(post)

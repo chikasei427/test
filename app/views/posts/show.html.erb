@@ -1,3 +1,15 @@
+<script type="text/javascript">
+  $(function(){
+    $('.picture').click(
+      function(){
+        $('.picture-modal-wrapper').fadeIn(700);
+      });
+    $('.close-modal').click(
+      function(){
+        $('.picture-modal-wrapper').fadeOut();
+      });
+  });
+</script>
 <h2 class="mb-2 text-white"><i class="fas fa-camera-retro"></i>Post details</h2>
 <div class="row">
   <div class="col-12">
@@ -7,7 +19,7 @@
       </tr>
       <tr>
         <td class="text-center">
-          <%= image_tag @post.picture.url, class: 'picture' %>
+          <%= image_tag @post.picture.url, class: 'picture cursor' %>
         </td>
       </tr>
       <tr>
@@ -28,4 +40,20 @@
       
     </table>
   </div>
+</div>
+
+
+<div class="picture-modal-wrapper" id="picture-modal">
+  <div class="picture-modal">
+    <div class="close-modal">
+      <i class="fa fa-2x fa-times"></i>
+    </div>
+    <center>
+    <img src="<%= @post.picture.url %>" class="d-block w-50">
+    </center>
+  </div>
+</div>
+
+<div class="balloon">
+  Click to enlarge
 </div>
