@@ -5,22 +5,21 @@
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
         <%= f.label :name, 'Name' %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.text_field :name, class: 'form-control fa', :placeholder => "\uf007Name" %>
       </div>
-
       <div class="form-group">
         <%= f.label :email, 'Email' %>
-        <%= f.email_field :email, class: 'form-control' %>
+        <%= f.email_field :email, class: 'form-control fa', :placeholder => "\uf0e0Email" %>
       </div>
 
       <div class="form-group">
         <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.password_field :password, class: 'form-control fa', :placeholder => "\uf084Password" %>
       </div>
 
       <div class="form-group">
         <%= f.label :password_confirmation, 'Confirmation' %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.password_field :password_confirmation, class: 'form-control fa', :placeholder => "\uf084Confirmation"  %>
       </div>
 
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
