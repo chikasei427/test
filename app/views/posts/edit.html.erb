@@ -19,6 +19,6 @@
       <%= f.submit 'Post', class: 'btn btn-primary btn-block w-25 mx-auto' %>
     <% end %>
     <br>
-    <%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %>
+    <%= link_to "Delete", @post, method: :delete, data: { confirm: "タイトル：「#{@post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
   </div>
 </div>
