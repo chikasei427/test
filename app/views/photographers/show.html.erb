@@ -26,6 +26,14 @@
           <% end %>
         <% end%>
       </tr>
+      <tr>
+        <% row.each do |post| %>
+          <td><div class="text-center"><%= render 'favorites/favorite_button', post: post %></div></td>
+          <% if row.size % 2 != 0 %>
+            <td></td>
+          <% end %>
+        <% end%>
+      </tr>
     <% end %>
   </table>
 </div>
