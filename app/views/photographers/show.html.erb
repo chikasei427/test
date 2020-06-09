@@ -46,12 +46,15 @@
   </table>
 </div>
 
+<% name = "あなた自身" %>
 <% if @photographer.posts.size == 0 %>
+  <% if current_photographer != @photographer %>
+    <% name = @photographer.name + "さん" %>
+  <% end %>
   <br><br>
   <h2>投稿がありません</h2>
-  <h3>あなた自身の投稿が、ここに表示されます。</h3>
+  <h3><%= name %>の投稿が、ここに表示されます。</h3>
 <% end %>
-
 
 <br>
 <%= paginate @posts %>
