@@ -1,12 +1,11 @@
-<h2 class="mb-2 text-white"><i class="fas fa-user"></i>写真家詳細</h2>
 <div class="row">
   <table class="table-light my-table w-100">
     <tr>
-      <td colspan="2" class="bg-primary"><div class="text-center"><div class="text-white p-1">名前:  <%= @photographer.name %></div></div></td>
+      <td colspan="2" class="bg-primary"><div class="text-center"><span class="text-white">名前:  <%= @photographer.name %></span></div></td>
     </tr>
     <tr>
-      <td class="w-50 text-center"><a href="<%= photographer_path %>" class="nav-link <%= 'active' if current_page?(photographer_path(@photographer)) %>">作品  <span class="badge badge-secondary"><%= @photographer.posts.size %></span></a></td>
-      <td class="w-50 text-center"><a href="<%= favorittings_photographer_path %>" class="nav-link <%= 'active' if current_page?(favorittings_photographer_path(@photographer)) %>">お気に入りした作品  <span class="badge badge-secondary"><%= @photographer.favorites.size %></span></a></td>
+      <td class="w-50"><a href="<%= photographer_path %>" class="nav-link <%= 'active' if current_page?(photographer_path(@photographer)) %>">作品  <span class="badge badge-secondary"><%= @photographer.posts.size %></span></a></td>
+      <td class="w-50"><a href="<%= favorittings_photographer_path %>" class="nav-link <%= 'active' if current_page?(favorittings_photographer_path(@photographer)) %>">お気に入りした作品  <span class="badge badge-secondary"><%= @photographer.favorites.size %></span></a></td>
     </tr>
     <% @favorites_row.each do |row| %>
       <tr>

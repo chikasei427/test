@@ -1,6 +1,6 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="/"><h1>PhotoSpace<i class="fas fa-camera-retro"></i></h1></a>
+    <a class="navbar-brand" href="/"><h1>PhotoSpace</h1></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,30 +10,38 @@
         <% if logged_in? %>
           <li class="nav-item">
             <%= link_to posts_path, class: 'nav-link' do %>
-            <i class="fas fa-camera-retro"></i>Works 
+            <i class="fas fa-camera-retro"></i>作品一覧
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to photographers_path, class: 'nav-link' do %>
-            <i class="fas fa-users"></i>Photographers
+            <i class="fas fa-users"></i>写真家一覧
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_post_path, class: 'nav-link' do %>
-            <i class="fas fa-upload"></i>New Post
+            <i class="fas fa-upload"></i>新規投稿
             <% end %>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user"></i>User:<%= current_photographer.name %></a>
+            <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user"></i><%= current_photographer.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><i class="fas fa-user"></i><%= link_to 'My profile', photographer_path(@current_photographer.id) %></li>
+              <li class="dropdown-item"><i class="fas fa-user"></i><%= link_to 'マイページ', photographer_path(@current_photographer.id) %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><i class="fas fa-sign-out-alt"></i><%= link_to 'Logout', logout_path, method: :delete %></li>
+              <li class="dropdown-item"><i class="fas fa-sign-out-alt"></i><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>
-          <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'Sign up', signup_path, class: 'nav-link' %></li>
+          <li class="nav-item">
+            <%= link_to posts_path, class: 'nav-link' do %>
+              <i class="fas fa-sign-in-alt"></i>ログイン
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to signup_path, class: 'nav-link' do %>
+              <i class="fas fa-user-plus"></i>新規登録
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>

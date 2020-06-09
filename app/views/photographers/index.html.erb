@@ -1,12 +1,12 @@
-<h2 class="mb-2 text-white"><i class="fas fa-users"></i>Photographers</h2>
+<h2 class="mb-2 text-white"><i class="fas fa-users"></i>写真家一覧</h2>
 <div class="row">
   <div class="col-12">
     <table class="table table-hover bg-white">
       <% @photographers.each do |photographer| %>
       <tr>
-        <td><i class="fas fa-user"></i>Name:  <%= link_to photographer.name, photographer_path(photographer.id), class:'text-primary' %></td>
-        <td><i class="far fa-thumbs-up"></i>The Work:  <%= link_to photographer.posts.size, photographer_path(photographer.id), class:'text-primary' %></td>
-        <td><i class="far fa-thumbs-up"></i>Favorite work:  <%= link_to photographer.favoritings.size, favorittings_photographer_path(photographer.id), class:'text-primary' %></td>
+        <td><i class="fas fa-user"></i>名前:  <%= link_to photographer.name, photographer_path(photographer.id), class:'text-primary' %></td>
+        <td><i class="far fa-thumbs-up"></i>作品数:  <%= link_to photographer.posts.size, photographer_path(photographer.id), class:'text-primary' %></td>
+        <td><i class="far fa-thumbs-up"></i>お気に入り作品数:  <%= link_to photographer.favoritings.size, favorittings_photographer_path(photographer.id), class:'text-primary' %></td>
       </tr>
       <% end %>
     </table>

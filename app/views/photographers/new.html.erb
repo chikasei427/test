@@ -1,28 +1,28 @@
-<h2 class="mb-2 text-white"><i class="fas fa-user-plus"></i>Sign up</h2>
+<h2 class="mb-2 text-white"><i class="fas fa-user-plus"></i>新規登録</h2>
 <div class="row">
-  <div class="col-sm-6 offset-sm-3 form">
+  <div class="col-lg-6 offset-lg-3 form">
     <%= form_with(model: @photographer, local: true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
-        <%= f.label :name, 'Name' %>
-        <%= f.text_field :name, class: 'form-control fa', :placeholder => "\uf007Name" %>
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control fa', :placeholder => "\uf007名前" %>
       </div>
       <div class="form-group">
-        <%= f.label :email, 'Email' %>
-        <%= f.email_field :email, class: 'form-control fa', :placeholder => "\uf0e0Email" %>
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control fa', :placeholder => "\uf0e0メールアドレス" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, class: 'form-control fa', :placeholder => "\uf084Password" %>
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class: 'form-control fa', :placeholder => "\uf084パスワード" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation, 'Confirmation' %>
-        <%= f.password_field :password_confirmation, class: 'form-control fa', :placeholder => "\uf084Confirmation"  %>
+        <%= f.label :password_confirmation, 'パスワード（確認）' %>
+        <%= f.password_field :password_confirmation, class: 'form-control fa', :placeholder => "\uf084パスワード（確認）"  %>
       </div>
 
-      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '新規登録', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>
