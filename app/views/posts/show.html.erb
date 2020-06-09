@@ -10,12 +10,12 @@
       });
   });
 </script>
-<h2 class="mb-2 text-white"><i class="fas fa-camera-retro"></i>Post details</h2>
+<h2 class="mb-2 text-white"><i class="fas fa-camera-retro"></i>投稿詳細</h2>
 <div class="row">
   <div class="col-12">
     <table class="table-light w-100 my-table">
       <tr>
-        <td class="bg-dark text-white text-center">Title：<%= @post.title %></td>
+        <td class="bg-dark text-white text-center">タイトル：<%= @post.title %></td>
       </tr>
       <tr>
         <td class="text-center">
@@ -23,10 +23,10 @@
         </td>
       </tr>
       <tr>
-        <td class="bg-info"><%= link_to 'Author：' + @post.photographer.name, photographer_path(@post.photographer.id), class: 'text-white' %></td>
+        <td class="bg-info"><%= link_to '作者：' + @post.photographer.name, photographer_path(@post.photographer.id), class: 'text-white' %></td>
       </tr>
       <tr>
-        <td>Content：<%= @post.content %></td>
+        <td>内容：<%= @post.content %></td>
       </tr>
       <% if current_photographer.id == @post.photographer.id %>
       <tr>

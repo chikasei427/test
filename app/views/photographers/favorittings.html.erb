@@ -1,4 +1,12 @@
-<h2 class="mb-2 text-white"><i class="fas fa-user"></i>写真家詳細</h2>
+<h2 class="mb-2 text-white">
+  <% if current_photographer == @photographer %>
+    <i class="fas fa-user"></i>
+    マイページ
+  <% else %>
+    <i class="fas fa-user"></i>
+    写真家詳細
+  <% end %>
+</h2>
 <div class="row">
   <table class="table-light my-table w-100">
     <tr>
