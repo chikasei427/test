@@ -19,7 +19,7 @@
     <% @posts_row.each do |row| %>
     <tr>
       <% row.each do |post| %>
-        <td class="bg-dark"><div class="text-center text-white">タイトル:  <%= post.title %></div></td>
+        <td class="bg-dark"><div class="text-center text-white"><%= link_to "タイトル:  " + post.title, post_path(post.id), class: 'text-white' %></div></td>
         <% if row.size % 2 != 0 %>
           <td></td>
         <% end %>
@@ -45,3 +45,6 @@
     <% end %>
   </table>
 </div>
+
+<br>
+<%= paginate @posts %>

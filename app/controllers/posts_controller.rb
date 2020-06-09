@@ -18,11 +18,11 @@ class PostsController < ApplicationController
   def create
     @post = current_photographer.posts.build(post_params)
     if @post.save
-      flash[:success] = '作品を投稿しました。'
+      flash[:success] = "タイトル「#{@post.title}」を投稿しました。"
       redirect_to photographer_path(current_photographer.id)
     else
       # @microposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = '作品の投稿に失敗しました。'
+      flash.now[:danger] = "タイトル「#{@post.title}」の投稿に失敗しました"
       render :new
     end
   end
@@ -38,18 +38,18 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:success] = '作品を投稿しました。'
+      flash[:success] = "タイトル「#{@post.title}」を編集しました。"
       redirect_to photographer_path(current_photographer.id)
     else
       # @microposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = '作品の投稿に失敗しました。'
+      flash.now[:danger] = "タイトル「#{@post.title}」の編集に失敗しました。"
       render :new
     end
   end
   
   def destroy
     @post.destroy
-    flash[:success] = '投稿を削除しました。'
+    flash[:success] = "タイトル「#{@post.title}」 を削除しました。"
     redirect_to root_path
   end
   

@@ -7,11 +7,13 @@ class PhotographersController < ApplicationController
   
   def index
     @photographers = Photographer.order(id: :desc).page(params[:page]).per(15)
+    render layout: "special_layout"
   end
 
   def show
     @photographer = Photographer.find(params[:id])
-    @posts_row = @photographer.posts.order(id: :desc).each_slice(2).to_a
+    @posts = @photographer.posts.order(id: :desc).page(params[:page]).per(4)
+    @posts_row = @posts.order(id: :desc).each_slice(2).to_a
   end
 
   def create
@@ -27,7 +29,8 @@ class PhotographersController < ApplicationController
   
   def favorittings
     @photographer = Photographer.find(params[:id])
-    @favorites_row = @photographer.favorites.order(id: :desc).each_slice(2).to_a
+    @favorites = @photographer.favorites.order(id: :desc).page(params[:page]).per(4)
+    @favorites_row = @favorites.order(id: :desc).each_slice(2).to_a
   end
   
   def favorite(post)
