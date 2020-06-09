@@ -54,5 +54,11 @@
   </table>
 </div>
 
+<% if @photographer.posts.size == 0 %>
+  <br><br>
+  <h2>投稿がありません</h2>
+  <p>あなたのお気に入りの投稿が、ここに表示されます。</p>
+<% end %>
+
 <br>
 <%= paginate @favorites %>

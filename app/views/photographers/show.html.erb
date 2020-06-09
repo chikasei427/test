@@ -46,5 +46,12 @@
   </table>
 </div>
 
+<% if @photographer.posts.size == 0 %>
+  <br><br>
+  <h2>投稿がありません</h2>
+  <p>あなた自身の投稿が、ここに表示されます。</p>
+<% end %>
+
+
 <br>
 <%= paginate @posts %>

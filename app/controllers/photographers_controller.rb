@@ -7,7 +7,6 @@ class PhotographersController < ApplicationController
   
   def index
     @photographers = Photographer.order(id: :desc).page(params[:page]).per(15)
-    render layout: "special_layout"
   end
 
   def show
