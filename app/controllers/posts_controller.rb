@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   before_action :require_photographer_logged_in
   before_action :correct_photographer, only: [:destroy]
+  before_action set_post, only: [:show, :edit, :update]
+
   def index
     @posts = Post.order(id: :desc).page(params[:page]).per(4)
     @posts_slice = Post.order(id: :desc).page(params[:page]).per(4).each_slice(2).to_a
   end
   
   def show
-    @post = Post.find(params[:id])
     render layout: "special_layout"
   end
 
@@ -28,7 +29,6 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:id])
     unless @post.photographer == current_photographer
       flash[:danger] = '不正なアクセスです。'
       redirect_to posts_path
@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   end
   
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:success] = "タイトル「#{@post.title}」を編集しました。"
       redirect_to photographer_path(current_photographer.id)
@@ -64,5 +63,10 @@ class PostsController < ApplicationController
       redirect_to root_url
     end
   end
+  
+  def set_post
+    @post = Post.find(params[:id])
+  end
+  
 end
 

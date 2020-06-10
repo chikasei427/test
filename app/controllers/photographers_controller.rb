@@ -1,5 +1,7 @@
 class PhotographersController < ApplicationController
   before_action :require_photographer_logged_in, only: [:index, :show, :favorittings, :favorite, :unfavorite, :favoriting?]
+  before_action :set_photographer, only: [:show, :favorittings]
+
 
   def new
     @photographer = Photographer.new
@@ -10,7 +12,6 @@ class PhotographersController < ApplicationController
   end
 
   def show
-    @photographer = Photographer.find(params[:id])
     @posts = @photographer.posts.order(id: :desc).page(params[:page]).per(4)
     @posts_row = @posts.order(id: :desc).each_slice(2).to_a
   end
@@ -27,7 +28,6 @@ class PhotographersController < ApplicationController
   end
   
   def favorittings
-    @photographer = Photographer.find(params[:id])
     @favorites = @photographer.favorites.order(id: :desc).page(params[:page]).per(4)
     @favorites_row = @favorites.order(id: :desc).each_slice(2).to_a
   end
@@ -50,6 +50,10 @@ class PhotographersController < ApplicationController
  private
   def photographer_params
     params.require(:photographer).permit(:name, :email, :password, :password_confirmation)
+  end
+  
+  def set_photographer
+    @photographer = Photographer.find(params[:id])
   end
 
 end

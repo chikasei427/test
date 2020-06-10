@@ -55,7 +55,7 @@
 </div>
 
 <% name = "あなた自身" %>
-<% if @photographer.posts.size == 0 %>
+<% if @favorites_row.size == 0 %>
   <% if current_photographer != @photographer %>
     <% name = @photographer.name + "さん" %>
   <% end %>
@@ -63,6 +63,5 @@
   <h2>投稿がありません</h2>
   <h3><%= name %>のお気に入りの投稿が、ここに表示されます。</h3>
 <% end %>
-
 <br>
 <%= paginate @favorites %>
