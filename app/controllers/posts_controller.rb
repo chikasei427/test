@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_photographer_logged_in
   before_action :correct_photographer, only: [:destroy]
-  before_action set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.order(id: :desc).page(params[:page]).per(4)
