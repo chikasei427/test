@@ -6,7 +6,7 @@ class Photographer < ApplicationRecord
   uniqueness: { case_sensitive: false }
   has_secure_password
   has_many :posts
-  has_many :favorites
+  has_many :favorites,dependent: :destroy
   has_many :favoritings, through: :favorites, source: :post
   has_many :reverses_of_favorite, class_name: 'Favorite', foreign_key: 'post_id'
   has_many :favoritters, through: :reverses_of_favorite, source: :photographer
