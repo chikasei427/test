@@ -39,24 +39,4 @@
   </table>
 </div>
 <br>
-
-
-
-<div class="row">
-
-    <% @posts_slice.each do |row| %>
-      <% row.each do |post| %>
-        <div class="col-6 bg-dark border">
-          <%= link_to 'タイトル:  ' + post.title, post_path(post.id), class:'text-white' %>
-        </div>
-      <% end %>
-      <% row.each do |post| %>
-        <div class="col-6 bg-white border">
-          <% image = image_tag post.picture.url, class: 'picture'%>
-          <%= link_to image, post_path(post.id) %>
-        </div>
-      <% end %>
-    <% end %>
-</div>
-
 <%= paginate @posts %>
